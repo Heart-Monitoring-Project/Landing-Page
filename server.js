@@ -1,17 +1,16 @@
-// load the things we need
-var express = require('express');
-var app = express();
+const express = require("express")
+let port_number = process.env.PORT || 8080;
+const app = express()
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname+"/public"))
-console.log(__dirname)
-// use res.render to load up an ejs view file
+app.use(express.static("public"))
+app.set("view engine","ejs")
+app.get("/",(req,res)=>{
+    res.render("index")
+})
 
-// index page
-app.get('/', function(req, res) {
-    res.render('index');
-});
-
-app.listen(8080);
-console.log('8080 is the magic port');
+app.listen(port_number,(err)=>{
+    if(err){
+        console.log(err)
+    }
+    console.log("Server is running")
+})
