@@ -8,6 +8,10 @@ app.get("/",(req,res)=>{
     res.render("index")
 })
 
+app.get("/privacy",(req,res)=>{
+    res.render("privacy")
+})
+
 app.listen(port_number,(err)=>{
     if(err){
         console.log(err)
